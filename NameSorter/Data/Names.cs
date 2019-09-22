@@ -17,21 +17,57 @@ namespace NameSorter.Data
 
         public int CompareTo(Names other)
         {
-            for (int i = 0; i < this.GivenName.Length; i++)
+            //if compared to null.
+            if (other == null)
+                return 1;
+
+            //array comparing
+            if(this.GivenName.Length > other.GivenName.Length)
             {
-                if(this.GivenName[i] == other.GivenName[i])
+                int[] compIndex = new int[other.GivenName.Length];
+
+                for (int i = 0; i < other.GivenName.Length; i++)
                 {
-                    return this.GivenName[i].CompareTo(other.GivenName[i]);
+                    compIndex[i] = this.GivenName[i].CompareTo(other.GivenName[i]);
+                }
+
+                foreach (var item in compIndex)
+                {
+                    return item;
                 }
             }
 
-            if(this.FirstName == other.FirstName)
+            if (this.GivenName.Length < other.GivenName.Length)
             {
-                return this.FirstName.CompareTo(other.FirstName);
+                int[] compIndex = new int[other.GivenName.Length];
+
+                for (int i = 0; i < this.GivenName.Length; i++)
+                {
+                    compIndex[i] = this.GivenName[i].CompareTo(other.GivenName[i]);
+                }
+
+                foreach (var item in compIndex)
+                {
+                    return item;
+                }
+            }
+
+            if (this.GivenName.Length == other.GivenName.Length)
+            {
+                int[] compIndex = new int[other.GivenName.Length];
+
+                for (int i = 0; i < other.GivenName.Length; i++)
+                {
+                    compIndex[i] = this.GivenName[i].CompareTo(other.GivenName[i]);
+                }
+
+                foreach (var item in compIndex)
+                {
+                    return item;
+                }
             }
 
             return this.LastName.CompareTo(other.LastName);
-
         }
 
         public override string ToString()

@@ -69,13 +69,13 @@ namespace Tests
         [Test]
         public void TestSorter()
         {
-           
-
             Assert.DoesNotThrow(() => {
-
+                //should not throw an exceptions
                 var sorter = new Sorter(new NamesFileReader());
+
                 sorter.ReadSource(_filePath);
                 var tempSortedItem = sorter.Sort();
+
                 sorter.ShowResult(new ConsoleNamesWriter());
             });
         }

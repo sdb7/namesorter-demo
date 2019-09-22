@@ -13,11 +13,8 @@ namespace NameSorter
                 return 1;
             }
 
-            foreach (var arg in args)
-            {
-                var reader = new NamesFileReader();
-                var readerStream = reader.Read(arg);
-            }
+            var path = args[0];
+
 
             Console.Write("Press Enter key to exit");
             Console.ReadLine();

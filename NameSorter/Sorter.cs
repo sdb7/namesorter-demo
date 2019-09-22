@@ -54,12 +54,11 @@ namespace NameSorter
         public IList<Names> Sort()
         {
             //give temporary data to debuggin purpose
-            var sortedIenumerable = _unsortedNames.OrderBy(s => s.LastName)
-                .ThenBy(s=>s.FirstName)
-                .ThenBy(n=>n.GivenName);
-
-            //this is bad example, worse code readability..but can't helped for now!.
-            return _sortedNames = sortedIenumerable.ToList();
+            var sortedByFirstandLast = _unsortedNames.OrderBy(s=>s.LastName).ThenBy(s=>s.FirstName);
+            var  tempSort = sortedByFirstandLast.ToList();
+            tempSort.Sort();
+            //code readability..but can't helped for now!.
+            return tempSort;
         }
 
         public void ShowResult(INamesWriter namesWriterContract)

@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace NameSorter
@@ -18,7 +15,7 @@ namespace NameSorter
 
             foreach (var arg in args)
             {
-                var reader = new NamesReader();
+                var reader = new NamesFileReader();
                 var readerStream = reader.Read(arg);
             }
 

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace NameSorter
 {
-    public class NamesReader : INamesReader
+    public class NamesFileReader : INamesReader
     {
         public Stream Read(string path)
         {

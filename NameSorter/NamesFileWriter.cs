@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace NameSorter
 {
-    public class NamesWriter : INamesWriter
+    public class NamesFileWriter : INamesWriter
     {
 
         /// <summary>

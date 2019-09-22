@@ -56,9 +56,9 @@ namespace NameSorter
             //give temporary data to debuggin purpose
             var sortedByFirstandLast = _unsortedNames.OrderBy(s=>s.LastName).ThenBy(s=>s.FirstName);
             var  tempSort = sortedByFirstandLast.ToList();
-            tempSort.Sort();
-            //code readability..but can't helped for now!.
-            return tempSort;
+            //tempSort.Sort();
+            //worse code readability..but can't helped for now!.
+            return _sortedNames = tempSort;
         }
 
         public void ShowResult(INamesWriter namesWriterContract)

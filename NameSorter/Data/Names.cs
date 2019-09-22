@@ -21,50 +21,15 @@ namespace NameSorter.Data
             if (other == null)
                 return 1;
 
-            //array comparing
-            if(this.GivenName.Length > other.GivenName.Length)
+            var items = this.GivenName.AsEnumerable().Zip(other.GivenName.AsEnumerable(),
+                    (first, second) => {
+                        return first.CompareTo(second);
+                    }
+                );
+
+            foreach (var item in items)
             {
-                int[] compIndex = new int[other.GivenName.Length];
-
-                for (int i = 0; i < other.GivenName.Length; i++)
-                {
-                    compIndex[i] = this.GivenName[i].CompareTo(other.GivenName[i]);
-                }
-
-                foreach (var item in compIndex)
-                {
-                    return item;
-                }
-            }
-
-            if (this.GivenName.Length < other.GivenName.Length)
-            {
-                int[] compIndex = new int[other.GivenName.Length];
-
-                for (int i = 0; i < this.GivenName.Length; i++)
-                {
-                    compIndex[i] = this.GivenName[i].CompareTo(other.GivenName[i]);
-                }
-
-                foreach (var item in compIndex)
-                {
-                    return item;
-                }
-            }
-
-            if (this.GivenName.Length == other.GivenName.Length)
-            {
-                int[] compIndex = new int[other.GivenName.Length];
-
-                for (int i = 0; i < other.GivenName.Length; i++)
-                {
-                    compIndex[i] = this.GivenName[i].CompareTo(other.GivenName[i]);
-                }
-
-                foreach (var item in compIndex)
-                {
-                    return item;
-                }
+                return item;
             }
 
             return this.LastName.CompareTo(other.LastName);
